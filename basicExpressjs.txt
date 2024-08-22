@@ -1,0 +1,27 @@
+-- This is basic express js code in which we learnt that how we can write same cde that we wrote
+in the http portion with so lengthy code , express js came in picture and trim it down 
+topics- 1. adding middlewares and handling diff routes .
+
+handling routes mein one thing that you have to remember is for '/' we have to write in the last
+else it won't work properly.
+
+const express = require("express");
+
+const app = express();
+
+app.use('/',(req,res,next)=>{
+    console.log("hemlo doston");
+    next();
+});
+
+app.use('/users',(req,res,next)=>{
+    console.log(" doston users hai");
+    res.send('<ul><li>satyam</li> <li>satyam2</li> <li>satyam3</li> <li>satyam4</li></ul>')
+});
+
+app.use('/',(req,res,next)=>{
+    console.log("hi doston");
+    res.send("<h1>hello</h1>")
+});
+
+app.listen(3000);
